@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './feature/user/user.module';
-import { AuthModule } from './feature/auth/auth.module';
 import { DatabaseModule } from './database/database.module';
 import { configValidationSchema } from './config/env.validation';
 
@@ -13,7 +12,6 @@ import { configValidationSchema } from './config/env.validation';
     }),
     UserModule,
     DatabaseModule,
-    AuthModule,
   ],
   controllers: [],
   providers: [],
