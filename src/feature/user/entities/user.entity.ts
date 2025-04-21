@@ -1,4 +1,12 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsToMany,
+  Column,
+  DataType,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Role } from 'src/feature/roles/entities/role.entity';
+import { UserRole } from 'src/feature/roles/entities/user-role.entity';
 
 @Table({ tableName: 'users' })
 export class User extends Model {
@@ -46,4 +54,7 @@ export class User extends Model {
     defaultValue: DataType.NOW,
   })
   createdAt: Date;
+
+  @BelongsToMany(() => Role, () => UserRole)
+  roles: Role[];
 }
